@@ -1,0 +1,12 @@
+{
+    "id": "search-pan",
+    "name": "网盘搜索",
+    "version": "1.0.0",
+    "description": "9 个网盘源聚合搜索（pansearch/rrdynb/gogopanso/ddys 等）",
+    "category": "search",
+    "icon": "☁️",
+    "requires_config": [],
+    "depends_on": [],
+    "provides": ["PanSearchProvider:pan"],
+    "risk_level": "high"
+}

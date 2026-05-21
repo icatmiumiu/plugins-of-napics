@@ -1,0 +1,34 @@
+{
+    "name": "Napics 社区插件源",
+    "version": "1.0.0",
+    "description": "社区维护的 Napics 插件，包含 BT 搜索源和网盘搜索源",
+    "homepage": "https://github.com/icatmiumiu/plugins-of-napics",
+    "plugins": [
+        {
+            "id": "search-bt-direct",
+            "name": "BT 直搜源包",
+            "version": "1.0.0",
+            "description": "12 个 BT 直搜源（Bitsearch/Nyaa/蜜柑/磁力熊/YTS/1337x 等）",
+            "category": "search",
+            "icon": "🧲",
+            "risk_level": "high",
+            "depends_on": [],
+            "download_url": "https://github.com/icatmiumiu/plugins-of-napics/releases/download/v1.0.0/search-bt-direct.zip",
+            "sha256": "",
+            "min_napics_version": "1.0.0"
+        },
+        {
+            "id": "search-pan",
+            "name": "网盘搜索",
+            "version": "1.0.0",
+            "description": "9 个网盘源聚合搜索（pansearch/rrdynb/gogopanso/ddys 等）",
+            "category": "search",
+            "icon": "☁️",
+            "risk_level": "high",
+            "depends_on": [],
+            "download_url": "https://github.com/icatmiumiu/plugins-of-napics/releases/download/v1.0.0/search-pan.zip",
+            "sha256": "",
+            "min_napics_version": "1.0.0"
+        }
+    ]
+}
