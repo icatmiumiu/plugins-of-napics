@@ -1,0 +1,12 @@
+{
+    "id": "search-pan-main",
+    "name": "网盘聚合搜索",
+    "version": "1.0.0",
+    "description": "PanSearch/PanSou — 网盘聚合搜索引擎",
+    "category": "search",
+    "icon": "☁️",
+    "requires_config": [],
+    "depends_on": [],
+    "provides": ["PanSearchProvider:pansearch", "PanSearchProvider:pansou"],
+    "risk_level": "high"
+}

@@ -1,0 +1,12 @@
+{
+    "id": "rss-anime",
+    "name": "动画 RSS 源包",
+    "version": "1.0.0",
+    "description": "蜜柑/Nyaa/ACG.RIP/Bangumi Moe/动漫花园",
+    "category": "rss",
+    "icon": "📡",
+    "requires_config": [],
+    "depends_on": [],
+    "provides": ["RSSProvider:anime"],
+    "risk_level": "high"
+}

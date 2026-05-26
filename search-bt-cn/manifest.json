@@ -1,0 +1,12 @@
+{
+    "id": "search-bt-cn",
+    "name": "BT 中文磁力搜索",
+    "version": "1.0.0",
+    "description": "磁力熊/XL720 — 中文磁力站，直连",
+    "category": "search",
+    "icon": "🔗",
+    "requires_config": [],
+    "depends_on": [],
+    "provides": ["SearchProvider:cilixiong", "SearchProvider:xl720"],
+    "risk_level": "high"
+}

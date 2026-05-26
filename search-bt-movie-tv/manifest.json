@@ -1,0 +1,12 @@
+{
+    "id": "search-bt-movie-tv",
+    "name": "BT 影视搜索",
+    "version": "1.0.0",
+    "description": "YTS/EZTV — 电影+美剧公开站",
+    "category": "search",
+    "icon": "🎬",
+    "requires_config": [],
+    "depends_on": [],
+    "provides": ["SearchProvider:yts", "SearchProvider:eztv"],
+    "risk_level": "high"
+}

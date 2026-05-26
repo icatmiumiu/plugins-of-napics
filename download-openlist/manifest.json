@@ -1,0 +1,12 @@
+{
+    "id": "download-openlist",
+    "name": "OpenList/Alist",
+    "version": "1.0.0",
+    "description": "网盘离线下载，通过 OpenList/Alist 提交离线任务",
+    "category": "download",
+    "icon": "📥",
+    "requires_config": ["alist_url", "alist_token"],
+    "depends_on": [],
+    "provides": ["DownloadBackend:openlist"],
+    "risk_level": "medium"
+}

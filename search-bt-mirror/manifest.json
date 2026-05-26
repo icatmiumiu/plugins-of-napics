@@ -1,0 +1,12 @@
+{
+    "id": "search-bt-mirror",
+    "name": "BT 综合搜索（镜像站）",
+    "version": "1.0.0",
+    "description": "Bitsearch/1337x/LimeTorrents — 英文综合站，CF 风险",
+    "category": "search",
+    "icon": "🧲",
+    "requires_config": [],
+    "depends_on": [],
+    "provides": ["SearchProvider:bitsearch", "SearchProvider:1337x", "SearchProvider:limetorrents"],
+    "risk_level": "high"
+}

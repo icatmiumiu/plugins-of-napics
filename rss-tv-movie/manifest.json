@@ -1,0 +1,12 @@
+{
+    "id": "rss-tv-movie",
+    "name": "影视 RSS 源包",
+    "version": "1.0.0",
+    "description": "EZTV/YTS/Prowlarr RSS",
+    "category": "rss",
+    "icon": "📡",
+    "requires_config": [],
+    "depends_on": [],
+    "provides": ["RSSProvider:tv_movie"],
+    "risk_level": "high"
+}

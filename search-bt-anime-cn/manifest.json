@@ -1,0 +1,12 @@
+{
+    "id": "search-bt-anime-cn",
+    "name": "BT 中文动画搜索",
+    "version": "1.0.0",
+    "description": "蜜柑/ACG.RIP/动漫花园 — 中文动画源，需代理",
+    "category": "search",
+    "icon": "🀄",
+    "requires_config": [],
+    "depends_on": [],
+    "provides": ["SearchProvider:mikan", "SearchProvider:acgrip", "SearchProvider:dmhy"],
+    "risk_level": "high"
+}

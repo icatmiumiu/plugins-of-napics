@@ -1,0 +1,12 @@
+{
+    "id": "search-pan-github",
+    "name": "网盘 GitHub 源",
+    "version": "1.0.0",
+    "description": "狗狗盘搜/GitHub 网盘仓库 — 同源数据",
+    "category": "search",
+    "icon": "🐙",
+    "requires_config": [],
+    "depends_on": [],
+    "provides": ["PanSearchProvider:gogopanso", "PanSearchProvider:github"],
+    "risk_level": "high"
+}
