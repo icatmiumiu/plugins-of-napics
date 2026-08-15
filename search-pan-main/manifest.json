@@ -1,7 +1,7 @@
 {
     "id": "search-pan-main",
     "name": "网盘聚合搜索",
-    "version": "1.0.0",
+    "version": "3.0.1",
     "description": "PanSearch/PanSou — 网盘聚合搜索引擎",
     "category": "search",
     "icon": "☁️",

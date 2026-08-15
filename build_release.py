@@ -33,9 +33,58 @@ PLUGIN_IDS = [
     "download-openlist",
 ]
 
+PLUGIN_SOURCE_FILES = {
+    "search-bt-mirror": [
+        "bt_scraper_bitsearch.py",
+        "bt_scraper_1337x.py",
+        "bt_scraper_limetorrents.py",
+    ],
+    "search-bt-movie-tv": [
+        "bt_scraper_yts.py",
+        "bt_scraper_eztv.py",
+    ],
+    "search-bt-anime-jp": [
+        "bt_scraper_nyaa.py",
+        "bt_scraper_bangumi_moe.py",
+    ],
+    "search-bt-anime-cn": [
+        "bt_scraper_mikan.py",
+        "bt_scraper_acgrip.py",
+        "bt_scraper_dmhy.py",
+    ],
+    "search-bt-cn": [
+        "bt_scraper_cilixiong.py",
+        "bt_scraper_xl720.py",
+    ],
+    "search-pan-main": [
+        "pan_scraper_pansearch.py",
+        "pan_scraper_pansou.py",
+    ],
+    "search-pan-github": [
+        "pan_scraper_gogopanso.py",
+        "pan_scraper_github.py",
+    ],
+    "search-pan-resource": [
+        "pan_scraper_rrdynb.py",
+        "pan_scraper_ddys.py",
+    ],
+    "rss-anime": [
+        "rss_source_mikan.py",
+        "rss_source_nyaa.py",
+        "rss_source_acgrip.py",
+        "rss_source_bangumi_moe.py",
+        "rss_source_dmhy.py",
+    ],
+    "rss-tv-movie": [
+        "rss_source_eztv.py",
+        "rss_source_yts.py",
+        "rss_source_prowlarr.py",
+    ],
+}
+
 
 def build_zip(plugin_id: str) -> str:
-    """打包单个插件为 zip，返回 sha256"""
+    """打包单个插件为 zip，返回 sha256。"""
     plugin_dir = os.path.join(SCRIPT_DIR, plugin_id)
     if not os.path.isdir(plugin_dir):
         print(f"  ⚠️  跳过 {plugin_id}（目录不存在）")
@@ -44,26 +93,41 @@ def build_zip(plugin_id: str) -> str:
     os.makedirs(DIST_DIR, exist_ok=True)
     zip_path = os.path.join(DIST_DIR, f"{plugin_id}.zip")
 
+    written = set()
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
         for root, dirs, files in os.walk(plugin_dir):
-            # 跳过 __pycache__
-            dirs[:] = [d for d in dirs if d != "__pycache__"]
+            dirs[:] = [directory for directory in dirs if directory != "__pycache__"]
             for file in files:
                 if file.endswith(".pyc"):
                     continue
                 file_path = os.path.join(root, file)
-                arcname = os.path.join(plugin_id, os.path.relpath(file_path, plugin_dir))
+                rel = os.path.relpath(file_path, plugin_dir)
+                arcname = os.path.join(plugin_id, rel)
+                written.add(arcname)
                 zf.write(file_path, arcname)
 
+    expected_sources = PLUGIN_SOURCE_FILES.get(plugin_id, [])
+    missing_sources = [
+        os.path.join(plugin_id, "sources", filename)
+        for filename in expected_sources
+        if os.path.join(plugin_id, "sources", filename) not in written
+    ]
+    if missing_sources:
+        missing_text = ", ".join(missing_sources)
+        raise RuntimeError(
+            f"{plugin_id} 打包结果缺少预期源文件: {missing_text}"
+        )
+
     # 计算 sha256
-    sha256 = hashlib.sha256(open(zip_path, "rb").read()).hexdigest()
+    with open(zip_path, "rb") as zip_file:
+        sha256 = hashlib.sha256(zip_file.read()).hexdigest()
     size_kb = os.path.getsize(zip_path) / 1024
     print(f"  ✅ {plugin_id}.zip ({size_kb:.1f} KB) sha256={sha256[:16]}...")
     return sha256
 
 
 def update_index(sha256_map: dict):
-    """更新 index.json 中的 sha256 字段"""
+    """更新 index.json 中的 sha256 字段。"""
     with open(INDEX_PATH, "r", encoding="utf-8") as f:
         index = json.load(f)
 

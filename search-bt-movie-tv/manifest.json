@@ -1,7 +1,7 @@
 {
     "id": "search-bt-movie-tv",
     "name": "BT 影视搜索",
-    "version": "1.0.0",
+    "version": "3.0.1",
     "description": "YTS/EZTV — 电影+美剧公开站",
     "category": "search",
     "icon": "🎬",
